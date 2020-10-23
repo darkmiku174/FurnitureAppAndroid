@@ -45,6 +45,19 @@ public class RegisterActivity extends AppCompatActivity {
                     editPass.setError("Password required");
                     return;
                 }
+
+                if (editPass.getText().toString().equals(editConfPass.getText().toString())) {
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    intent.putExtra("Username", editUser.getText().toString());
+                    intent.putExtra("Password", editPass.getText().toString());
+                    setResult(101, intent);
+                    finish();
+                } else {
+                    editPass.setError("Password and confirm password does not match");
+                    editConfPass.setText("");
+                    return;
+                }
+
             }
         });
 
@@ -55,7 +68,6 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     public static boolean isValid(String email) {

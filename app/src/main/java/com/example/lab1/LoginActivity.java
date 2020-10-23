@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -27,10 +28,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (editUser.getText().toString().isEmpty() || editUser.getText().toString().isEmpty()) {
                     Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                    startActivity(intent);
-                }
-                else {
+                    startActivityForResult(intent, 100);
+                } else {
                     Intent intent = new Intent(LoginActivity.this, InfoActivity.class);
+                    intent.putExtra("Username", editUser.getText().toString());
+                    intent.putExtra("Password", editPass.getText().toString());
                     startActivity(intent);
                 }
             }
@@ -40,8 +42,17 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, InfoActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, 100);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == 101) {
+            editUser.setText(data.getStringExtra("Username"));
+            editPass.setText(data.getStringExtra("Password"));
+        }
     }
 }
