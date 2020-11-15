@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">Lab1</string>
+    <string name="app_name">Funiture</string>
+    <string name="name_product_one">Zinus Joeclyn Contemporary 65 inch</string>
+    <string name="name_product_two">GreenForest L-Shape Corner</string>
+    <string name="name_product_three">Christopher Knight Home</string>
+    <string name="name_product_four">Sealy</string>
+    <string name="name_product_five">Ameriwood Kendall</string>
+
+    <string name="product_one">Mô tả 1</string>
+    <string name="product_two">Mô tả 2</string>
+    <string name="product_three">Mô tả 3</string>
+    <string name="product_four">Mô tả 4</string>
+    <string name="product_five">Mô tả 5</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
