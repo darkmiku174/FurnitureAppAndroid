@@ -29,8 +29,10 @@ public class LoginActivity extends AppCompatActivity {
                 if (editUser.getText().toString().isEmpty() || editUser.getText().toString().isEmpty()) {
                     Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                     startActivityForResult(intent, 100);
+                } else if (editPass.getText().toString().length() < 6) {
+                    editPass.setError("Minimum 6 number");
                 } else {
-                    Intent intent = new Intent(LoginActivity.this, InfoActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, BottomNavigation.class);
                     intent.putExtra("Username", editUser.getText().toString());
                     intent.putExtra("Password", editPass.getText().toString());
                     startActivity(intent);

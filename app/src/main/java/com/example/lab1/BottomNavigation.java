@@ -33,7 +33,7 @@ public class BottomNavigation extends AppCompatActivity {
         loadFragment(new DashboardFragment());
 
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        bottomNavigationView.setSelectedItemId(R.id.mnuHome);
+        bottomNavigationView.setSelectedItemId(R.id.mnuDashboard);
 
         searchView = findViewById(R.id.search_view);
         searchView.setOnClickListener(new View.OnClickListener() {

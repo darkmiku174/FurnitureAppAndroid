@@ -51,11 +51,11 @@ public class HomeFragment extends Fragment {
                     l) {
                 if (Contains(Utils.furnitureHistory, arrayList.get(i).getName()) == true) {
                     Utils.furnitureHistory.add(arrayList.get(i));
-                    Toast.makeText(getContext(), i + "", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getContext(), DetailActivity.class);
-                    intent.putExtra("furniture", arrayList.get(i));
-                    startActivity(intent);
+//                    Toast.makeText(getContext(), i + "", Toast.LENGTH_SHORT).show();
                 }
+                Intent intent = new Intent(getContext(), DetailActivity.class);
+                intent.putExtra("furniture", arrayList.get(i));
+                startActivity(intent);
             }
         });
     }

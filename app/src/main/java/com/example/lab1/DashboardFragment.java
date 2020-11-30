@@ -87,10 +87,10 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i,
                                     long l) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, CategoriesFragment.newInstance(i));
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+//                fragmentTransaction.replace(R.id.nav_host_fragment, CategoriesFragment.newInstance(i));
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
             }
         });
     }

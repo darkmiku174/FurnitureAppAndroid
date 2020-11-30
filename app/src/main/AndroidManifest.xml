@@ -11,7 +11,13 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".WelcomeActivity"
-            android:theme="@style/AppThemeNoBar" />
+            android:theme="@style/AppThemeNoBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppThemeNoBar" />
@@ -21,11 +27,6 @@
         <activity
             android:name=".BottomNavigation"
             android:theme="@style/AppThemeNoBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".InfoActivity" />
         <activity android:name=".DetailActivity" />

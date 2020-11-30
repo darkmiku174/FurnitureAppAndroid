@@ -116,6 +116,7 @@
             android:layout_weight="1"
             android:background="#fff"
             android:text="Male"
+            android:checked="true"
             android:textColor="#DD1709"
             android:textSize="16sp"
             android:padding="10dp"

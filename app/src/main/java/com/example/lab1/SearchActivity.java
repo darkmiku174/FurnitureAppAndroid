@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import me.gujun.android.taggroup.TagGroup;
 public class SearchActivity extends AppCompatActivity {
 
     SearchView searchView;
+    TextView textView;
     ArrayList<Furniture> arrayList;
     Utils utils;
     ListView listView;
@@ -31,6 +33,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         utils = new Utils(SearchActivity.this);
+        textView = findViewById(R.id.textView);
         arrayList = new ArrayList<>();
         listView = findViewById(R.id.listView);
         furnitureAdapter = new FurnitureAdapter(SearchActivity.this, arrayList);
@@ -74,7 +77,7 @@ public class SearchActivity extends AppCompatActivity {
                 tmp.add(furniture);
             }
         }
-        Toast.makeText(this, tmp.size() + "", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, tmp.size() + "", Toast.LENGTH_SHORT).show();
         if (tmp.size() > 0) {
             furnitureAdapter.clear();
             furnitureAdapter.addAll(tmp);
@@ -87,8 +90,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void hideSoftKeyboard(View view) {
-        InputMethodManager imm
-                = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
