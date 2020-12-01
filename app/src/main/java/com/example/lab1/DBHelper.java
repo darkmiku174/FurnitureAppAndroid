@@ -56,7 +56,7 @@ public class DBHelper {
                     String image = csr.getString(2);
                     String description = csr.getString(3);
                     int categoriesID = csr.getInt(4);
-                    //arr.add(new Furniture(name, description, image, findByCatetgoriesID(categoriesID), id));
+                    arr.add(new Furniture(name, description, image, findByCatetgoriesID(categoriesID), id));
                 } while (csr.moveToNext());
             }
         }
@@ -75,7 +75,7 @@ public class DBHelper {
                     int id = csr.getInt(0);
                     String name = csr.getString(1);
                     String image = csr.getString(2);
-                    //arr.add(new Categories(name, image, id));
+                    arr.add(new Categories(name, image, id));
                 } while (csr.moveToNext());
             }
         }
@@ -117,7 +117,7 @@ public class DBHelper {
     }
 
     public void insertFurniture() {
-        ArrayList<Furniture> arrFurniture = utils.getMockDataFuniture();
+        ArrayList<Furniture> arrFurniture = utils.getMockDataFurniture();
         SQLiteDatabase db = openDB();
         Random random = new Random();
         for (Furniture fu : arrFurniture) {

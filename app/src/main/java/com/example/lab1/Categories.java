@@ -12,36 +12,61 @@ import java.util.ArrayList;
 public class Categories {
     String name;
     ArrayList<Furniture> arrayList;
-    Bitmap image;
+    String image;
+    int id;
+
     public Categories(String name, ArrayList<Furniture> arrayList) {
         this.name = name;
         this.arrayList = arrayList;
     }
-    public Categories(String name, ArrayList<Furniture> arrayList, Bitmap image) {
+
+    public Categories(String name, ArrayList<Furniture> arrayList, String image, int id) {
         this.name = name;
         this.arrayList = arrayList;
         this.image = image;
+        this.id = id;
     }
+
+    public Categories(String name, String image, int id) {
+        this.name = name;
+        this.image = image;
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public ArrayList<Furniture> getArrayList() {
         return arrayList;
     }
+
     public void setArrayList(ArrayList<Furniture> arrayList) {
         this.arrayList = arrayList;
     }
-    public Bitmap getImage() {
+
+    public String getImage() {
         return image;
     }
-    public void setImage(Bitmap image) {
+
+    public void setImage(String image) {
         this.image = image;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public static Bitmap convertStringToBitmapFromAccess(Context context, String
-            filename){
+            filename) {
         AssetManager assetManager = context.getAssets();
         try {
             InputStream is = assetManager.open(filename);

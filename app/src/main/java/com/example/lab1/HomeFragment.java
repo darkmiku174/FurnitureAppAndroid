@@ -23,6 +23,7 @@ public class HomeFragment extends Fragment {
     ArrayList<Furniture> arrayList;
     FurnitureAdapter furnitureAdapter;
     Utils utils;
+    DBHelper dbHelper;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -33,8 +34,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         utils = new Utils(getContext());
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        return view;
+        dbHelper = new DBHelper(getContext());
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
@@ -42,7 +43,8 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         listView = view.findViewById(R.id.listView);
-        arrayList = utils.getMockData();
+        //arrayList = utils.getMockData();
+        arrayList = dbHelper.getALLFurniture();
         furnitureAdapter = new FurnitureAdapter(getContext(), arrayList);
         listView.setAdapter(furnitureAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

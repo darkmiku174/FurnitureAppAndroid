@@ -13,14 +13,25 @@ public class Furniture implements Serializable {
     String name;
     String description;
     String image;
+    Categories categories;
+    int id;
 
     public Furniture() {
     }
 
-    public Furniture(String name, String description, String image) {
+    public Furniture(String name, String description, String image, Categories categories, int id) {
         this.name = name;
         this.description = description;
         this.image = image;
+        this.categories = categories;
+        this.id = id;
+    }
+
+    public Furniture(String name, String description, String image, int id) {
+        this.name = name;
+        this.description = description;
+        this.image = image;
+        this.id = id;
     }
 
     public String getName() {
@@ -46,8 +57,24 @@ public class Furniture implements Serializable {
     public void setImage(String image) {
         this.image = image;
     }
-    public static Bitmap convertStringToBitmapFromAccess(Context context, String
-            filename){
+
+    public Categories getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Categories categories) {
+        this.categories = categories;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static Bitmap convertStringToBitmapFromAccess(Context context, String filename) {
         AssetManager assetManager = context.getAssets();
         try {
             InputStream is = assetManager.open(filename);

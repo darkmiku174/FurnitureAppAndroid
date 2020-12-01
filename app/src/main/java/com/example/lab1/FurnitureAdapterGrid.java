@@ -34,9 +34,9 @@ public class FurnitureAdapterGrid extends ArrayAdapter<Categories> {
         Categories categories = arrayList.get(position);
 
         ImageView imageView = convertView.findViewById(R.id.imageViewCatagories);
-        TextView textView=convertView.findViewById(R.id.textViewCatagories);
+        TextView textView = convertView.findViewById(R.id.textViewCatagories);
 
-        imageView.setImageBitmap(categories.getImage());
+        imageView.setImageBitmap(Categories.convertStringToBitmapFromAccess(getContext(), categories.getImage()));
         textView.setText(categories.getName());
 
         return convertView;
