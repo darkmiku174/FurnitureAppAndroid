@@ -26,6 +26,7 @@ public class CategoriesFragment extends Fragment {
 
     ListView listView;
     ArrayList<Furniture> arrayList;
+    Categories categories;
     FurnitureAdapter furnitureAdapter;
     Utils utils;
     DBHelper dbHelper;
@@ -58,9 +59,9 @@ public class CategoriesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Bundle bundle = getArguments();
         listView = view.findViewById(R.id.listView);
-        arrayList = utils.getFurnitureFromCategories(bundle.getInt("category"));
-//        Categories categories=dbHelper.addFurnitureToCategories(bundle.getInt("category"));
-//        arrayList = categories.getArrayList();
+//        arrayList = utils.getFurnitureFromCategories(bundle.getInt("category"));
+        categories = dbHelper.addFurnitureToCategories(bundle.getInt("category") + 1);
+        arrayList = categories.getArrayList();
         furnitureAdapter = new FurnitureAdapter(getContext(), arrayList);
         listView.setAdapter(furnitureAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

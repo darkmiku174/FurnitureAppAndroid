@@ -18,6 +18,7 @@ public class Categories {
     public Categories(String name, ArrayList<Furniture> arrayList) {
         this.name = name;
         this.arrayList = arrayList;
+        arrayList=new ArrayList<Furniture>();
     }
 
     public Categories(String name, ArrayList<Furniture> arrayList, String image, int id) {
@@ -31,6 +32,7 @@ public class Categories {
         this.name = name;
         this.image = image;
         this.id = id;
+        arrayList=new ArrayList<Furniture>();
     }
 
     public String getName() {

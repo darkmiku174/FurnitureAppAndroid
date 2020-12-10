@@ -96,11 +96,15 @@ public class DBHelper {
     public Categories addFurnitureToCategories(int categoriesId) {
         Categories categories = findByCatetgoriesID(categoriesId);
         ArrayList<Furniture> arrFurniture = getALLFurniture();
+        ArrayList<Furniture> tmp = new ArrayList<Furniture>();
+
         for (Furniture furniture : arrFurniture) {
             if (furniture.getCategories().getId() == categoriesId) {
-                categories.getArrayList().add(furniture);
+//                categories.getArrayList().add(furniture);
+                tmp.add(furniture);
             }
         }
+        categories.setArrayList(tmp);
         return categories;
     }
 
