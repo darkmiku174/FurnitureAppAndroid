@@ -24,6 +24,7 @@ public class SearchActivity extends AppCompatActivity {
     TextView textView;
     ArrayList<Furniture> arrayList;
     Utils utils;
+    DBHelper dbHelper;
     ListView listView;
     FurnitureAdapter furnitureAdapter;
     TagGroup mTagGroup;
@@ -32,8 +33,9 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        utils = new Utils(SearchActivity.this);
-        textView = findViewById(R.id.textView);
+        //utils = new Utils(SearchActivity.this);
+        dbHelper = new DBHelper(SearchActivity.this);
+        textView = findViewById(R.id.textViewResult);
         arrayList = new ArrayList<>();
         listView = findViewById(R.id.listView);
         furnitureAdapter = new FurnitureAdapter(SearchActivity.this, arrayList);
@@ -72,20 +74,28 @@ public class SearchActivity extends AppCompatActivity {
         if (newText == null)
             return;
         ArrayList<Furniture> tmp = new ArrayList<>();
-        for (Furniture furniture : utils.LoadFileInternal()) {
+//        for (Furniture furniture : utils.LoadFileInternal()) {
+//            if (furniture.getName().toLowerCase().contains(newText.toLowerCase())) {
+//                tmp.add(furniture);
+//            }
+//        }
+        for (Furniture furniture : dbHelper.getALLFurniture()) {
             if (furniture.getName().toLowerCase().contains(newText.toLowerCase())) {
                 tmp.add(furniture);
             }
         }
 //        Toast.makeText(this, tmp.size() + "", Toast.LENGTH_SHORT).show();
+        textView = findViewById(R.id.textViewResult);
         if (tmp.size() > 0) {
             furnitureAdapter.clear();
+            textView.setVisibility(View.INVISIBLE);
             furnitureAdapter.addAll(tmp);
             furnitureAdapter.notifyDataSetChanged();
             listView.setVisibility(View.VISIBLE);
         }
         if (newText.isEmpty()) {
             listView.setVisibility(View.GONE);
+            textView.setVisibility(View.VISIBLE);
         }
     }
 

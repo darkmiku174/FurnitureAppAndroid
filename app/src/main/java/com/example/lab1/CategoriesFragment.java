@@ -49,7 +49,7 @@ public class CategoriesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        utils = new Utils(getContext());
+//        utils = new Utils(getContext());
         dbHelper = new DBHelper(getContext());
         return inflater.inflate(R.layout.fragment_categories, container, false);
     }
