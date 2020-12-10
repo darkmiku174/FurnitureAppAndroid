@@ -28,6 +28,7 @@ public class CategoriesFragment extends Fragment {
     ArrayList<Furniture> arrayList;
     FurnitureAdapter furnitureAdapter;
     Utils utils;
+    DBHelper dbHelper;
 
 
     public CategoriesFragment() {
@@ -48,6 +49,7 @@ public class CategoriesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         utils = new Utils(getContext());
+        dbHelper = new DBHelper(getContext());
         return inflater.inflate(R.layout.fragment_categories, container, false);
     }
 
@@ -57,6 +59,8 @@ public class CategoriesFragment extends Fragment {
         Bundle bundle = getArguments();
         listView = view.findViewById(R.id.listView);
         arrayList = utils.getFurnitureFromCategories(bundle.getInt("category"));
+//        Categories categories=dbHelper.addFurnitureToCategories(bundle.getInt("category"));
+//        arrayList = categories.getArrayList();
         furnitureAdapter = new FurnitureAdapter(getContext(), arrayList);
         listView.setAdapter(furnitureAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

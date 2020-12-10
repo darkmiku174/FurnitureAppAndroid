@@ -113,7 +113,7 @@ public class Utils {
     }
 
     public ArrayList<Furniture> getFurnitureFromCategories(int pos) {
-        ArrayList<Furniture> tmp = new ArrayList<>();
+        ArrayList<Furniture> tmp = new ArrayList<Furniture>();
         switch (pos) {
             case 0:
                 tmp.add(new Furniture(context.getString(R.string.name_product_one),
